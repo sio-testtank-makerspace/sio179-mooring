@@ -11,10 +11,10 @@ void parseSeapHOx(); // parse response from SeapHOx of "ts" "gdata" or "glast" c
 
 // This is the name of the Particle event to publish for battery or movement detection events
 // It is a private event.
-const char *eventName = "CpHOx1";
+const char *eventName = "CpHOx2";
 
 // Various timing constants
-const unsigned long MAX_TIME_TO_PUBLISH_MS = 60000; // Only stay awake for 60 seconds trying to connect to the cloud and publish
+const unsigned long MAX_TIME_TO_PUBLISH_S = 60; // Only stay awake for 60 seconds trying to connect to the cloud and publish
 const unsigned long TIME_AFTER_PUBLISH_S = 4; // After publish, wait 4 seconds for data to go out (Now written as sec, not ms- Aidan 2-19-19)
 const unsigned long TIME_AFTER_BOOT_MS = 5000; // At boot, wait 5 seconds before going to sleep again (after coming online)
 const unsigned long SLEEP_TIME_SEC = 10; // Deep sleep time- 1800ms
@@ -101,7 +101,7 @@ void loop() {
     Serial.println("Publish_State");
     //After this, it attempts to connect to Cellular 
     Serial.println("Connecting...");
-    if (Particle.connected() == false && Time.local()-timer <= MAX_TIME_TO_PUBLISH_MS) { // This rewrites the Particle.connect function with a breakout condition
+    if (Particle.connected() == false && Time.local()-timer <= MAX_TIME_TO_PUBLISH_S) { // This rewrites the Particle.connect function with a breakout condition
         Particle.connect();
         Serial.println("Still connecting...");
         delay(1000);
@@ -167,7 +167,7 @@ void loop() {
     else {
       Serial.println("Failed to connect");
       // Took too long to publish, just go to sleep
-      if (Time.local()-timer >= MAX_TIME_TO_PUBLISH_MS) { //Changed so this is evaluated compared to 60s
+      if (Time.local()-timer >= MAX_TIME_TO_PUBLISH_S) { //Changed so this is evaluated compared to 60s
         state = SLEEP_STATE;
       }
     }
