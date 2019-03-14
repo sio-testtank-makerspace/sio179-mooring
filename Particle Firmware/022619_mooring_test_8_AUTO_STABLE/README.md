@@ -1,4 +1,4 @@
-README
+# 022619_MOORING_TEST_AUTO_STABLE 
 
 Device OS is updated to V1.0.1, firmware is written for the new OS, but should be backwards compatible.
 
