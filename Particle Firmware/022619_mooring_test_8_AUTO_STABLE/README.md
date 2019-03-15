@@ -27,9 +27,9 @@ Device OS is updated to V1.0.1, firmware is written for the new OS, but should b
 - At the moment, if the device cannot connect to the internet, it occasionally goes into an infinite loop, although it usually times out within 5 minutes. However, it is unclear as to how to fix this as this is a background process issue. 
 - There appears to be a parsing issue with the SeapHOx that is causing a hang to occur intermittently without a breakout. Some possibilities:
 
- 1. The serial is not ending and restarting properly. (Doesn't appear to be the issue, but possible)
- 2. Parsing is occurring when the SeapHOx is not ready (Doesn't fully explain the issue)
- 3. Some other problem. A corrupt buffer or slow connection appears to be the main culprit as these would avoid triggering 
+  1. The serial is not ending and restarting properly. (Doesn't appear to be the issue, but possible)
+  2. Parsing is occurring when the SeapHOx is not ready (Doesn't fully explain the issue)
+  3. Some other problem. A corrupt buffer or slow connection appears to be the main culprit as these would avoid triggering 
     a timeout, while still causing a problem.
     
 - There exists no timeout condition for SeapHOx right now if a data connection has been established, but the serial is corrupted.
