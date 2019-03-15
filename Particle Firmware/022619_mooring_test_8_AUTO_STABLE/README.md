@@ -20,11 +20,12 @@ Device OS is updated to V1.0.1, firmware is written for the new OS, but should b
 - Runs through various setup protocols
 - Connects to the cloud
 - Parses SeapHOx and publishes the data
-- Sets a sleep time, and goes to deep sleep
+- Sets a wakeup time, and goes to deep sleep
+- Wakes up and begins anew
 
 ### Issues:
 
-- At the moment, if the device cannot connect to the internet, it occasionally goes into an infinite loop, although it usually times out within 5 minutes. However, it is unclear as to how to fix this as this is a background process issue. 
+- At the moment, if the device cannot connect to the internet, it occasionally goes into an infinite loop, although it usually times out within 5 minutes. However, it is unclear as to how to fix this, as this is a background process issue. 
 - There appears to be a parsing issue with the SeapHOx that is causing a hang to occur intermittently without a breakout. Some possibilities:
 
   1. The serial is not ending and restarting properly. (Doesn't appear to be the issue, but possible)
